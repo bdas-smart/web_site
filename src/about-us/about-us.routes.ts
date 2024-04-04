@@ -11,13 +11,13 @@ import {
 } from "./about-us.controller";
 
 const aboutUsRoutes = Router();
-aboutUsRoutes.route("/").get(asyncWrapper(getAllAboutUs)).post(asyncWrapper(getAllAboutUsLanding));
-aboutUsRoutes.route("/landing").get(asyncWrapper(deleteAboutUs));
-aboutUsRoutes.route("/landing/:id").get(asyncWrapper(createAboutUs));
+aboutUsRoutes.route("/").get(asyncWrapper(getAllAboutUs)).post(asyncWrapper(createAboutUs));
+aboutUsRoutes.route("/landing").get(asyncWrapper(getAllAboutUsLanding));
+aboutUsRoutes.route("/landing/:id").get(asyncWrapper(getOneAboutUsLanding));
 aboutUsRoutes
   .route("/:id")
   .get(asyncWrapper(getOneAboutUs))
-  .delete(asyncWrapper(getOneAboutUsLanding))
+  .delete(asyncWrapper(deleteAboutUs))
   .put(asyncWrapper(updateOneAboutUs));
 
 export default aboutUsRoutes;
